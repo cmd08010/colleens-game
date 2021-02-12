@@ -23,8 +23,6 @@ const onSignIn = (event) => {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-  $('#change-password').show()
-  $('#new-game').show()
 }
 
 const onChangePassword = (event) => {
