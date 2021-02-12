@@ -18,5 +18,5 @@ $(() => {
 
   // game event handlers
   $('#new-game').on('click', gameEvents.onNewGame)
-  $('#game-board').on('click', gameEvents.)
+  $('#game-board').hide()
 })
