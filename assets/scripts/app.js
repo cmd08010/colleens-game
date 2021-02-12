@@ -20,4 +20,6 @@ $(() => {
   $('#create-game').on('click', gameEvents.onCreateGame)
   $('#game-board').on('click', gameEvents.onUpdateGame)
   $('#game-board').hide()
+
+  $('#show-game').on('click', gameEvents.onShowGames)
 })

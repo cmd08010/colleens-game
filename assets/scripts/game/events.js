@@ -31,6 +31,8 @@ const onUpdateGame = (event) => {
 const onShowGames = (event) => {
   console.log('clicked')
   api.getGames()
+    .then(ui.showGamesSucces)
+    .catch(ui.showGamesFailure)
 }
 
 module.exports = {

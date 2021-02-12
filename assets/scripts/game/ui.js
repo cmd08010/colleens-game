@@ -22,9 +22,17 @@ const updateGameFailure = (response) => {
   $('#error-message').text('The board did create')
 }
 
+const showGamesSucces = (response) => {
+console.log(games)
+}
+
+const showGamesFailure = (response) => {}
+
 module.exports = {
   createGameSuccess,
   createGameFailure,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  showGamesSucces,
+  showGamesFailure
 }

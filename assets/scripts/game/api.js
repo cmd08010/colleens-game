@@ -29,6 +29,13 @@ const updateGame = (data) => {
 
 const getGames = () => {
   console.log('got games')
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
 }
 
 const getGame = () => {
