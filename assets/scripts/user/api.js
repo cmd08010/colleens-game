@@ -1,28 +1,26 @@
 
-const config = ('../config.js')
-const store = ('../store')
+const config = require('../config')
+const store = require('../store')
 
 const signUp = (data) => {
-  console.log(config.apiUrl, 'my url to the api')
   return $.ajax({
     method: 'POST',
-    url: `${config.apiURL}/sign-up`,
+    url: `${config.apiUrl}/sign-up`,
     data: data
   })
 }
 
 const signIn = (data) => {
-  console.log(config.apiUrl, 'my url to the api')
   return $.ajax({
     method: 'POST',
-    url: `${config.apiURL}/sign-in`,
+    url: `${config.apiUrl}/sign-in`,
     data: data
   })
 }
 
 const changePassword = function (data) {
   return $.ajax({
-    url: `${config.apiURL}/change-password`,
+    url: `${config.apiUrl}/change-password`,
     method: 'PATCH',
     headers: {
       Authorization: `Bearer ${store.user.token}`
