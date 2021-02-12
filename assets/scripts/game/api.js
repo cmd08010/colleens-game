@@ -4,7 +4,6 @@ const store = require('../store')
 
 
 const createGame = (data) => {
-
   return $.ajax({
     url: `${config.apiUrl}/games`,
     method: 'POST',
@@ -16,7 +15,6 @@ const createGame = (data) => {
 }
 
 const updateGame = (data) => {
-  console.log(data, "this is the data im sending to the api")
   return $.ajax({
     url: `${config.apiUrl}/games/${store.game._id}`,
     method: 'PATCH',
@@ -29,6 +27,13 @@ const updateGame = (data) => {
 
 const getGames = () => {
   console.log('got games')
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
 }
 
 const getGame = () => {

@@ -4,6 +4,9 @@ const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
 
+store.turnNumber = 1
+store.turnValue = ''
+
 const onCreateGame = (event) => {
   api.createGame({})
     .then(ui.createGameSuccess)
@@ -13,24 +16,34 @@ const onCreateGame = (event) => {
 const onUpdateGame = (event) => {
   const box = event.target
   const boxIndex = $(box).data('cell-index')
-  const boxValue = $(box).val()
+  console.log(event.target, 'turn change handler')
+  store.turnNumber++
+  if (store.turnNumber % 2) {
+    store.turnValue = 'X'
+  } else {
+    store.turnValue = 'O'
+  }
+
   const gameData = {
     game: {
       cell: {
         index: boxIndex,
-        value: 'x'
+        value: store.turnValue
       },
       over: false
     }
   }
+
   api.updateGame(gameData)
-    .then(response => console.log(response))
+    .then(response => ui.updateGameSuccess(response, event.target))
     .catch(ui.updateGameFailure)
 }
 
 const onShowGames = (event) => {
   console.log('clicked')
   api.getGames()
+    .then(ui.showGamesSucces)
+    .catch(ui.showGamesFailure)
 }
 
 module.exports = {
