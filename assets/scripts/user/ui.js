@@ -11,10 +11,12 @@ const signUpFailure = function (response) {
 
 const signInSuccess = function (response) {
   store.user = response.user
-  $('#success-message').text('Thank you for signing in')
+  $('#error-message').text('')
   $('#change-password').show()
+  $('#create-game').show()
   $('#sign-in').hide()
   $('#sign-up').hide()
+
 }
 const signInFailure = function (response) {
   $('#error-message').text('Sign in failed, try again')
