@@ -12,6 +12,43 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <div class="container">
+      <h1>Tic Tac Toe</h1>
+
+      <section id="auth-section">
+      <form id='sign-up'>
+        <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+        <br>
+        <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+        <br>
+        <input type='password' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
+        <br>
+        <button class="btn btn-info">Sign up</button>
+      </form>
+      <hr>
+      <form id='sign-in'>
+        <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+        <br>
+        <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+        <br>
+        <button class="btn btn-info">Sign in</button>
+      </form>
+      <form id='change-password'>
+        <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+        <br>
+        <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+        <br>
+        <button class="btn btn-info">Sign in</button>
+      </form>
+      <hr>
+    </section>
+    <section id="game-board">
+    </section>
+    <section class="messages">
+      <div id="error-message"></div>
+      <div id="success-message"></div>
+    </section>
+
+    </div>
     </body>
 </html>
