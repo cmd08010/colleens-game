@@ -3,7 +3,6 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
-
 store.turnNumber = 1
 store.turnValue = ''
 

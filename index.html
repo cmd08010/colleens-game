@@ -15,64 +15,65 @@
       <div class="container">
       <h1>Tic Tac Toe</h1>
 
-      <section id="auth-section">
-      <form id='sign-up'>
-        <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
-        <br>
-        <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
-        <br>
-        <input type='password' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
-        <br>
-        <button class="btn btn-info">Sign up</button>
-      </form>
-      <hr>
-      <form id='sign-in'>
-        <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
-        <br>
-        <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
-        <br>
-        <button class="btn btn-info">Sign in</button>
-      </form>
-      <form id='change-password'>
-        <h2>Change your password</h2>
-        <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
-        <br>
-        <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
-        <br>
-        <button class="btn btn-info">Change Password</button>
-      </form>
-      <hr>
-    </section>
-    <section>
-      <button class ="btn btn-outline-primary" id="create-game">Let's play</button>
-    </section>
-    <section>
-      <button class ="btn btn-outline-primary" id="show-game">Show Games</button>
-    </section>
-    <section id="game-board">
-      <div class="row">
-        <div class="col-2 box alt-color" id="1" data-cell-index='0'></div>
-        <div class="col-2 box alt-color" id="2" data-cell-index='1'></div>
-        <div class="col-2 box alt-color" id="3" data-cell-index='2'></div>
-       </div>
-       <div class="row">
-         <div class="col-2 box alt-color" id="4" data-cell-index='3'></div>
-         <div class="col-2 box alt-color" id="5" data-cell-index='4'></div>
-         <div class="col-2 box alt-color" id="6" data-cell-index='5'></div>
-        </div>
-        <div class="row">
-          <div class="col-2 box alt-color" id="7" data-cell-index='6'></div>
-          <div class="col-2 box alt-color" id="8" data-cell-index='7'></div>
-          <div class="col-2 box alt-color" id="9" data-cell-index='8'></div>
-         </div>
+      <section id="no-user">
+        <form id='sign-up'>
+          <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+          <br>
+          <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+          <br>
+          <input type='password' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
+          <br>
+          <button class="btn btn-info">Sign up</button>
+        </form>
+        <hr>
+        <form id='sign-in'>
+          <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+          <br>
+          <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+          <br>
+          <button class="btn btn-info">Sign in</button>
+        </form>
+      </section>
 
-    </section>
-    <section class="messages">
-      <div id="error-message"></div>
-      <div id="success-message"></div>
-      <button id="storage">Console Store info</button
-    </section>
-
+      <section id="user-signed-in">
+        <form id='change-password'>
+            <h2>Change your password</h2>
+            <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+            <br>
+            <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+            <br>
+            <button class="btn btn-info">Change Password</button>
+          </form>
+        <button id="sign-out">Sign Out</button>
+        <hr>
+        <button class ="btn btn-outline-primary" id="create-game">Let's play</button>
+        <section class="games">
+          <button class ="btn btn-outline-primary" id="show-game">Show Games</button>
+        </section>
+        <section id="game-board">
+          <div class="row">
+            <div class="col-2 box alt-color" id="1" data-cell-index='0'></div>
+            <div class="col-2 box alt-color" id="2" data-cell-index='1'></div>
+            <div class="col-2 box alt-color" id="3" data-cell-index='2'></div>
+          </div>
+          <div class="row">
+            <div class="col-2 box alt-color" id="4" data-cell-index='3'></div>
+            <div class="col-2 box alt-color" id="5" data-cell-index='4'></div>
+            <div class="col-2 box alt-color" id="6" data-cell-index='5'></div>
+          </div>
+          <div class="row">
+            <div class="col-2 box alt-color" id="7" data-cell-index='6'></div>
+            <div class="col-2 box alt-color" id="8" data-cell-index='7'></div>
+            <div class="col-2 box alt-color" id="9" data-cell-index='8'></div>
+          </div>
+        </section>
+        <section class="messages">
+          <div id="error-message"></div>
+          <div id="success-message"></div>
+          <button id="storage">Console Store info</button>
+        </section>
+      </section>
     </div>
+
     </body>
 </html>

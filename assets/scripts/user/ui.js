@@ -13,9 +13,8 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#error-message').text('')
   $('#change-password').show()
-  $('#create-game').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
+  $('#user-signed-in').show()
+  $('#no-user').hide()
 
 }
 const signInFailure = function (response) {
@@ -30,11 +29,21 @@ const changePasswordFailure = () => {
   $('#error-message').text('Password WAS NOT changed. Try again')
 }
 
+const signOutSuccess = (target) => {
+  delete store.user
+  $('#no-user').show()
+  $('#user-signed-in').hide()
+}
+
+const signOutFailure = () => {}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInFailure,
   signInSuccess,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }

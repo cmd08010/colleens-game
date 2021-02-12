@@ -22,7 +22,11 @@ const updateGameFailure = (response) => {
 }
 
 const showGamesSucces = (response) => {
-console.log(games)
+  console.log(response, "my games")
+  response.games.map(game => {
+      $('.games').append(`<h2>${game.cells}<h2>`)
+  })
+
 }
 
 const showGamesFailure = (response) => {}
