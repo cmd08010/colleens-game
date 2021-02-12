@@ -17,6 +17,7 @@ $(() => {
   $('#change-password').on('submit', userEvents.onChangePassword)
 
   // game event handlers
-  $('#new-game').on('click', gameEvents.onNewGame)
+  $('#create-game').on('click', gameEvents.onCreateGame)
+  $('#game-board').on('click', gameEvents.onUpdateGame)
   $('#game-board').hide()
 })
