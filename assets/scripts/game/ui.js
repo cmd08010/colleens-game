@@ -3,23 +3,22 @@ const store = require('../store')
 const createGameSuccess = (response) => {
   $('#game-board').show()
   store.game = response.game
-  console.log(store.game, "my stored game")
 }
 
 const createGameFailure = (response) => {
-  console.log(response, "ui create game failed")
   $('#error-message').text('The board did not create')
 }
 
-const updateGameSuccess = (response) => {
-  console.log(response, "my ui response from api")
-  $(response).html('X')
+const updateGameSuccess = (response, box) => {
+  console.log(response, "this is my response")
+  $(box).html(`<h2>${store.turnValue}</h2>`)
   store.currentGame = response.game.id
 }
 
 const updateGameFailure = (response) => {
-  console.log(response, "")
-  $('#error-message').text('The board did create')
+  $('#error-message').text('Try again')
+  store.turnValue = ''
+  store.turnNumber--
 }
 
 module.exports = {
