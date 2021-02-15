@@ -15,7 +15,6 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#user-signed-in').show()
   $('#no-user').hide()
-
 }
 const signInFailure = function (response) {
   $('#error-message').text('Sign in failed, try again')

@@ -46,10 +46,7 @@
           </form>
         <button id="sign-out">Sign Out</button>
         <hr>
-        <button class ="btn btn-outline-primary" id="create-game">Let's play</button>
-        <section class="games">
-          <button class ="btn btn-outline-primary" id="show-game">Show Games</button>
-        </section>
+        <button class ="btn btn-outline-primary" id="create-game">New Game</button>
         <section id="game-board">
           <div class="row">
             <div class="col-2 box alt-color" id="1" data-cell-index='0'></div>
@@ -66,6 +63,11 @@
             <div class="col-2 box alt-color" id="8" data-cell-index='7'></div>
             <div class="col-2 box alt-color" id="9" data-cell-index='8'></div>
           </div>
+        </section>
+        <button class="btn btn-outline-primary" id="show-game">Show Games</button>
+        <button class="btn btn-outline-primary" id="hide-game">Hide Games</button>
+        <section class="games">
+          <div class="each-game"></div>
         </section>
         <section class="messages">
           <div id="error-message"></div>

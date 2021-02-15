@@ -19,11 +19,14 @@ $(() => {
   $('#sign-out').on('click', userEvents.onSignOut)
 
   // game event handlers
+  $('#game-board').hide()
   $('#create-game').on('click', gameEvents.onCreateGame)
   $('#game-board').on('click', gameEvents.onUpdateGame)
 //  $('#game-board').on('click', gameEvents.onTurnChange)
 // remove once completed - this shows my stored stuff
 
-$('#show-game').on('click', gameEvents.onShowGames)
+  $('#hide-game').hide()
+  $('#show-game').on('click', gameEvents.onShowGames)
+  $('#hide-game').on('click', gameEvents.onHideGames)
   $('#storage').on('click', () => console.log(store))
 })
