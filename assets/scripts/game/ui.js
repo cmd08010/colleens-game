@@ -50,7 +50,7 @@ const showWinSuccess = (response, box) => {
 }
 
 const showTieSuccess = (response) => {
-  $('#success-message').text(`Game tied! Play again!`)
+  $('#success-message').text('Game tied! Play again!')
 }
 
 module.exports = {

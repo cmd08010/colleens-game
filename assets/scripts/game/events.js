@@ -6,7 +6,6 @@ store.turnNumber = 1
 store.turnValue = ''
 store.notClicked = true
 
-
 const onCreateGame = (event) => {
   store.notClicked = true
   api.createGame({})
