@@ -24,7 +24,7 @@ $(() => {
   $('#game-board').hide()
   $('#create-game').on('click', gameEvents.onCreateGame)
   $('#game-board').on('click', gameEvents.onUpdateGame)
-//  $('#game-board').on('click', gameEvents.onTurnChange)
+  //  $('#game-board').on('click', gameEvents.onTurnChange)
 
   $('#hide-game').hide()
   $('#show-game').on('click', gameEvents.onShowGames)

@@ -2,7 +2,6 @@
 const config = require('../config')
 const store = require('../store')
 
-
 const createGame = (data) => {
   return $.ajax({
     url: `${config.apiUrl}/games`,

@@ -33,7 +33,7 @@ const showGamesSuccess = (response) => {
     $('.games').append(`
     <h2>Game number: ${response.games.indexOf(game) + 1} </h2>
     <p>Game created on: ${game.createdAt}</p>
-    <p>Game over: ${game.over ? "Yes!" : "Not Yet!"}</p>`)
+    <p>Game over: ${game.over ? 'Yes!' : 'Not Yet!'}</p>`)
   })
 }
 
@@ -44,7 +44,7 @@ const hideGames = () => {
 }
 
 const showWinSuccess = (response) => {
-  $('#game-board').addClass("")
+  $('#game-board').addClass('')
   $('#success-message').text('Winner Winner!')
 }
 

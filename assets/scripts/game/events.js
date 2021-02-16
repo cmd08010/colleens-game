@@ -6,7 +6,6 @@ const store = require('../store')
 store.turnNumber = 1
 store.turnValue = ''
 
-
 const onCreateGame = (event) => {
   api.createGame({})
     .then(ui.createGameSuccess)
@@ -26,10 +25,10 @@ const onCheckForWin = (game) => {
   ) {
     ui.showWinSuccess(game.cells)
     game.over = true
-    console.log(game, "should show over true")
+    console.log(game, 'should show over true')
     return game
   } else {
-    console.log("game still on", game.cells)
+    console.log('game still on', game.cells)
   }
   // cells.map(cell =>
   //  console.log(cell)
@@ -58,7 +57,7 @@ const onUpdateGame = (event) => {
     }
   }
   if (store.game.over) {
-    console.log(store.game, "test")
+    console.log(store.game, 'test')
   } else {
     api.updateGame(gameData)
       .then(response => {
