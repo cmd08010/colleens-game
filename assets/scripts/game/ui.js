@@ -27,9 +27,11 @@ const showGamesSuccess = (response) => {
   $('#hide-game').show()
   $('.games').show()
   console.dir(response)
+  $('.games').append(`<h2>You've played ${response.games.length} games. </h2>`)
   response.games.map(game => {
   //  console.log(game, "what is each game")
-    $('.games').append(`<h2>Game number: ${response.games.indexOf(game) + 1} </h2>
+    $('.games').append(`
+    <h2>Game number: ${response.games.indexOf(game) + 1} </h2>
     <p>Game created on: ${game.createdAt}</p>
     <p>Game over: ${game.over ? "Yes!" : "Not Yet!"}</p>`)
   })
