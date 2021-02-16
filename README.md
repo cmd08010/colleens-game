@@ -2,6 +2,10 @@
 
 ## Play Colleen's Game aka Tic Tac Toe
 
+Check it out!
+
+https://cmd08010.github.io/colleens-game/
+
 ### Login or create an account
 
 First login or create an account!
