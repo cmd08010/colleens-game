@@ -23,7 +23,7 @@ $(() => {
   // game event handlers
   $('#game-board').hide()
   $('#create-game').on('click', gameEvents.onCreateGame)
-  $('#game-board').on('click', gameEvents.onUpdateGame)
+  $('.box').on('click', gameEvents.onUpdateGame)
   //  $('#game-board').on('click', gameEvents.onTurnChange)
 
   $('#hide-game').hide()

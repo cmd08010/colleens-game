@@ -17,7 +17,7 @@ body {
   border: 1px solid $black;
   color: $font-color;
   display: flex;
-  height: 100px;
+  height: 200px;
   justify-content: center;
 }
 
@@ -30,16 +30,16 @@ body {
 }
 
 h1 {
-  justify-content: center;
   display: flex;
+  justify-content: center;
   margin: 50px;
 }
 
 h2 {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
   margin-bottom: 30px;
+  margin-top: 40px;
 }
 
 .no-user {
@@ -63,3 +63,21 @@ input {
   display: flex;
   flex-direction: column;
 }
+
+.row {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  position: relative;
+  //  border: 10px solid yellow;
+}
+
+// #test {
+//   border: 10px solid green;
+// }
+//
+// #game-board {
+//   border: 10px solid black;
+//   position: relative;
+// }

@@ -1,10 +1,12 @@
 const api = require('./api')
 const ui = require('./ui')
-const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
 store.turnNumber = 1
 store.turnValue = ''
+store.gameBoard = {
+  alreadyClicked: false
+}
 
 const onCreateGame = (event) => {
   api.createGame({})
@@ -36,10 +38,9 @@ const onCheckForWin = (game) => {
 }
 
 const onUpdateGame = (event) => {
-  $(this).off()
+  console.log(event, "my event")
   const box = event.target
   const boxIndex = $(box).data('cell-index')
-  console.log(event.target, boxIndex, 'turn change handler')
   store.turnNumber++
   if (store.turnNumber % 2) {
     store.turnValue = 'O'
@@ -58,14 +59,21 @@ const onUpdateGame = (event) => {
   }
   if (store.game.over) {
     console.log(store.game, 'test')
+    ui.showWinSuccess(store.game)
   } else {
     api.updateGame(gameData)
       .then(response => {
+        console.log(response.game.cells[boxIndex], "should be my cell I just clickeds value")
         if (response.game.over) {
-          ui.showWinSuccess(response)
+          ui.showWinSuccess(response, event.target)
         } else {
-          onCheckForWin(response.game)
-          ui.updateGameSuccess(response, event.target)
+          if (response.game.cells[boxIndex] !== "") {
+
+            ui.updateGameFailure(response)
+          } else {
+            onCheckForWin(response.game)
+            ui.updateGameSuccess(response, event.target)
+          }
         }
       })
       .catch(ui.updateGameFailure)

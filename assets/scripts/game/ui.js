@@ -43,9 +43,10 @@ const hideGames = () => {
   $('.games').hide()
 }
 
-const showWinSuccess = (response) => {
+const showWinSuccess = (response, target) => {
+  console.log(target, "in win success")
   $('#game-board').addClass('')
-  $('#success-message').text('Winner Winner!')
+  $('#success-message').text(`${response} is the Winner Winner!`)
 }
 
 const showTieSuccess = (response) => {
