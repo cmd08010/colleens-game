@@ -10,7 +10,7 @@ const store = require('./store')
 
 $(() => {
   // your JS code goes here
-
+console.log("did my deployed site update?")
   // user event handlers
   $('#user-signed-in').hide()
   $('#user-options').hide()
