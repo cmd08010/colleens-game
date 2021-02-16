@@ -6,7 +6,9 @@ $body-bg-color: $gray-200;
 $font-color: $black;
 
 body {
+  align-items: center;
   background-color: $body-bg-color;
+  justify-content: center;
 }
 
 .box {
@@ -25,4 +27,39 @@ body {
 
 .btn {
   margin: 10px;
+}
+
+h1 {
+  justify-content: center;
+  display: flex;
+  margin: 50px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.no-user {
+  display: flex;
+}
+
+form {
+  align-content: stretch;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  height: 95%;
+  width: 45%;
+}
+
+.user-signed-in {
+  display: flex;
+  flex-direction: column;
 }

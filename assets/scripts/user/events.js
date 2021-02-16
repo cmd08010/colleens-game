@@ -32,6 +32,10 @@ const onChangePassword = (event) => {
     .catch(ui.changePasswordFailure)
 }
 
+const onShowChangePassword = () => {
+  ui.showChangePasswordForm()
+}
+
 const onSignOut = (event) => {
   ui.signOutSuccess(event.target)
 }
@@ -39,5 +43,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onShowChangePassword
 }

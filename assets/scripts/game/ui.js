@@ -24,10 +24,14 @@ const updateGameFailure = (response) => {
 }
 
 const showGamesSuccess = (response) => {
-  console.log(response, "my games")
   $('#hide-game').show()
+  $('.games').show()
+  console.dir(response)
   response.games.map(game => {
-    $('.games').append(`<h2>${game.createdAt}<h2>`)
+  //  console.log(game, "what is each game")
+    $('.games').append(`<h2>Game number: ${response.games.indexOf(game) + 1} </h2>
+    <p>Game created on: ${game.createdAt}</p>
+    <p>Game over: ${game.over ? "Yes!" : "Not Yet!"}</p>`)
   })
 }
 
