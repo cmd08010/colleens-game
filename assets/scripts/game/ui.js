@@ -6,6 +6,7 @@ const createGameSuccess = (response) => {
   $('.row').children().text('')
   $('#game-board').on('click', gameEvents.onUpdateGame)
   $('#success-message').text('')
+  $('#error-message').text('')
   store.game = response.game
 }
 
@@ -14,10 +15,11 @@ const createGameFailure = (response) => {
 }
 
 const updateGameSuccess = (response, box) => {
-  $(box).html(`<h2>${store.turnValue}</h2>`)
+  $(box).html(`${store.turnValue}`)
+  $('#error-message').text('')
 }
 
-const updateGameFailure = (response) => {
+const updateGameFailure = () => {
   $('#error-message').text('That square is taken! Try again.')
   store.turnValue = ''
   store.turnNumber--
@@ -43,14 +45,12 @@ const hideGames = () => {
   $('.games').hide()
 }
 
-const showWinSuccess = (response, target) => {
-  console.log(target, "in win success")
-  $('#game-board').addClass('')
-  $('#success-message').text(`${response} is the Winner Winner!`)
+const showWinSuccess = (response, box) => {
+  $('#success-message').text(`${store.turnValue} is the Winner Winner!`)
 }
 
 const showTieSuccess = (response) => {
-
+  $('#success-message').text(`Game tied! Play again!`)
 }
 
 module.exports = {

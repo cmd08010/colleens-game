@@ -4,17 +4,17 @@ const store = require('../store')
 
 store.turnNumber = 1
 store.turnValue = ''
-store.gameBoard = {
-  alreadyClicked: false
-}
+store.notClicked = true
+
 
 const onCreateGame = (event) => {
+  store.notClicked = true
   api.createGame({})
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
 }
 
-const onCheckForWin = (game) => {
+const onCheckForWin = (game, box) => {
   if (
     ((game.cells[0] !== '') && (game.cells[0] === game.cells[1]) && (game.cells[1] === game.cells[2])) ||
     ((game.cells[0] !== '') && (game.cells[0] === game.cells[4]) && (game.cells[4] === game.cells[8])) ||
@@ -25,20 +25,19 @@ const onCheckForWin = (game) => {
     ((game.cells[6] !== '') && (game.cells[6] === game.cells[7]) && (game.cells[7] === game.cells[8])) ||
     ((game.cells[2] !== '') && (game.cells[2] === game.cells[4]) && (game.cells[4] === game.cells[6]))
   ) {
-    ui.showWinSuccess(game.cells)
+    ui.showWinSuccess(game.cells, box)
     game.over = true
-    console.log(game, 'should show over true')
     return game
   } else {
-    console.log('game still on', game.cells)
+    if (game.over === true) {
+      ui.showTieSuccess(game)
+    } else {
+      return game
+    }
   }
-  // cells.map(cell =>
-  //  console.log(cell)
-  // })
 }
 
 const onUpdateGame = (event) => {
-  console.log(event, "my event")
   const box = event.target
   const boxIndex = $(box).data('cell-index')
   store.turnNumber++
@@ -57,31 +56,27 @@ const onUpdateGame = (event) => {
       over: false
     }
   }
-  if (store.game.over) {
-    console.log(store.game, 'test')
-    ui.showWinSuccess(store.game)
-  } else {
+
+  if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
+    // if not filled - mark the box and patch to api
     api.updateGame(gameData)
       .then(response => {
-        console.log(response.game.cells[boxIndex], "should be my cell I just clickeds value")
         if (response.game.over) {
-          ui.showWinSuccess(response, event.target)
+          // if the response shows the game is now over - then check for a win - show the win message
+          onCheckForWin(response.game, event.target)
         } else {
-          if (response.game.cells[boxIndex] !== "") {
-
-            ui.updateGameFailure(response)
-          } else {
-            onCheckForWin(response.game)
-            ui.updateGameSuccess(response, event.target)
-          }
+          // if game is not over
+          onCheckForWin(response.game, event.target)
+          ui.updateGameSuccess(response, event.target)
         }
       })
       .catch(ui.updateGameFailure)
+  } else {
+    ui.updateGameFailure()
   }
 }
 
 const onShowGames = (event) => {
-  console.log('clicked')
   api.getGames()
     .then(ui.showGamesSuccess)
     .catch(ui.showGamesFailure)
