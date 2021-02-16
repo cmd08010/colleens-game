@@ -4,7 +4,6 @@ const gameEvents = require('../game/events')
 const createGameSuccess = (response) => {
   $('#game-board').show()
   $('.row').children().text('')
-  $('#game-board').on('click', gameEvents.onUpdateGame)
   $('#success-message').text('')
   $('#error-message').text('')
   store.game = response.game
@@ -44,7 +43,8 @@ const hideGames = () => {
 }
 
 const showWinSuccess = (response, box) => {
-  $('#success-message').text(`${store.turnValue} is the Winner Winner!`)
+  $('#success-message').text(`${store.turnValue} is the Winner! Hit New Game to Play again!`).addClass('success')
+  $('.box').off('click', gameEvents.onUpdateGame)
 }
 
 const showTieSuccess = (response) => {

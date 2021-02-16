@@ -55,7 +55,7 @@ const onUpdateGame = (event) => {
       over: false
     }
   }
-
+console.log($(event.target).text(), "on deployed site: this should be the inner text of my box, it should show nothing ")
   if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
     // if not filled - mark the box and patch to api
     api.updateGame(gameData)
