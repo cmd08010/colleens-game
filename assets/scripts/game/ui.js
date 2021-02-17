@@ -17,10 +17,12 @@ const createGameFailure = (response) => {
 const updateGameSuccess = (response, box) => {
   $(box).html(`<h2>${store.turnValue}</h2>`)
   $('#error-message').text('')
+  $('#success-message').text('')
 }
 
 const updateGameFailure = () => {
   $('#error-message').text('That square is taken! Try again.')
+  $('#success-message').text('')
   store.turnValue = ''
   store.turnNumber--
 }
@@ -41,12 +43,17 @@ const showGamesSuccess = (response) => {
 
 const showGamesFailure = (response) => {
   $('#game-animation').hide()
+  $('#error-message').text('Try again!')
+  $('#success-message').text('')
 }
 
 const hideGames = () => {
   $('.games').hide()
   $('#game-animation').show()
+  $('#error-message').text('')
+  $('#success-message').text('')
 }
+
 
 const showWinSuccess = (response, box) => {
   console.log($(box).html(), box, "box", response)

@@ -26,10 +26,11 @@ const changePasswordSuccess = () => {
   $('#success-message').text('Password was successfully changed!').addClass('success')
   $('#change-password').trigger('reset')
   $('#change-password').hide()
-  $('.#game-board').show()
 }
 
 const changePasswordFailure = () => {
+
+  $('#success-message').text('')
   $('#error-message').text('Password WAS NOT changed. Try again')
 }
 
@@ -38,6 +39,8 @@ const showChangePasswordForm = () => {
   $('#game-board').hide()
   $('game-animation').hide()
   $('games').hide()
+  $('#error-message').text('')
+  $('#success-message').text('')
 }
 
 const signOutSuccess = (target) => {
@@ -47,6 +50,8 @@ const signOutSuccess = (target) => {
   $('.games').hide()
   $('#game-board').hide()
   $('#user-options').hide()
+  $('#error-message').text('')
+  $('#success-message').text('')
 }
 
 const signOutFailure = () => {}
