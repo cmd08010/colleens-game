@@ -36,6 +36,8 @@ const changePasswordFailure = () => {
 const showChangePasswordForm = () => {
   $('#change-password').show()
   $('#game-board').hide()
+  $('game-animation').hide()
+  $('games').hide()
 }
 
 const signOutSuccess = (target) => {
