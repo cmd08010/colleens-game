@@ -30,7 +30,7 @@ const showGamesSuccess = (response) => {
   $('.games').show()
   $('#game-board').hide()
   $('#game-animation').hide()
-  $('.games').append(`<h2>You've played ${response.games.length} games. </h2>`)
+  $('.games').append(` <h2>You've played ${response.games.length} games</h2>`)
   response.games.map(game => {
     $('.games').append(`
     <h2>Game number: ${response.games.indexOf(game) + 1} </h2>
@@ -45,13 +45,12 @@ const showGamesFailure = (response) => {
 
 const hideGames = () => {
   $('.games').hide()
-  $('#game-animation').hide()
+  $('#game-animation').show()
 }
 
 const showWinSuccess = (response, box) => {
   console.log($(box).html(), box, "box", response)
-  $('#success-message').text(`${$(box).text()} is the Winner! Click New Game to play again`).addClass('success')
-
+  $('#success-message').text(`${store.turnValue} is the Winner! Click New Game to play again`).addClass('success')
 }
 
 const showTieSuccess = (response) => {

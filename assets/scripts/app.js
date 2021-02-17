@@ -4,7 +4,7 @@
 // const example = require('./example')
 const userEvents = require('./user/events')
 const gameEvents = require('./game/events')
-const store = require('./store')
+
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -30,5 +30,5 @@ $(() => {
   $('#hide-game').on('click', gameEvents.onHideGames)
 
   // remove once completed - this shows my stored stuff
-  $('#storage').on('click', () => console.log(store))
+//  $('#storage').on('click', () => console.log(store))
 })

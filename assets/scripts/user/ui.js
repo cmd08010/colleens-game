@@ -10,7 +10,6 @@ const signUpFailure = function (response) {
 }
 
 const signInSuccess = function (response) {
-  console.log(response, " this is my response from the api after signing in")
   store.user = response.user
   $('#error-message').text('')
   $('#change-password').show()
@@ -20,6 +19,7 @@ const signInSuccess = function (response) {
   $('#change-password').hide()
 }
 const signInFailure = function (response) {
+  console.log(response, " this is my response from the api after signing in")
   $('#error-message').text('Sign in failed, try again')
 }
 const changePasswordSuccess = () => {

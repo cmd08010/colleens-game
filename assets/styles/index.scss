@@ -66,6 +66,12 @@ input {
   width: 45%;
 }
 
+#nav-bar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .no-user {
   display: flex;
 }

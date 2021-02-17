@@ -13,10 +13,14 @@
     </head>
     <body>
       <div class="container">
-        <div class="badge bg-secondary">
+        <div class="banner">
           <h1>Tic Tac Toe</h1>
         </div>
       <hr>
+      <section class="messages">
+        <div id="error-message"></div>
+        <div id="success-message"  data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
+      </section>
       <section id="no-user">
         <h2>Sign in or Sign up to play!</h2>
         <hr>
@@ -47,13 +51,8 @@
           <button class="btn btn-outline-primary" id="show-game">Show Games</button>
           <button class="btn btn-outline-primary" id="hide-game">Hide Games</button>
           <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
-          <button id="sign-out" class="btn btn-outline-primary nav">Sign Out</button>
-          <button id="storage">Console Store info</button>
+          <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
         </nav>
-        <section class="messages">
-          <div id="error-message"></div>
-          <div id="success-message"  data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
-      </section>
         <section id="game-animation">
             <div class="win">
             	<span></span>
@@ -90,6 +89,7 @@
           </form>
         </section>
       </section>
+
 
       <section id="game-board">
           <div class="row">
