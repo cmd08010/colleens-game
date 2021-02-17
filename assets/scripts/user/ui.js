@@ -37,7 +37,7 @@ const changePasswordFailure = () => {
 const showChangePasswordForm = () => {
   $('#change-password').show()
   $('#game-board').hide()
-  $('#git game-animation').hide()
+  $('#game-animation').hide()
   $('.games').hide()
   $('#error-message').text('')
   $('#success-message').text('')
