@@ -13,10 +13,13 @@
     </head>
     <body>
       <div class="container">
-      <h1>Tic Tac Toe</h1>
+        <div class="badge bg-secondary">
+          <h1>Tic Tac Toe</h1>
+        </div>
       <hr>
-
       <section id="no-user">
+        <h2>Sign in or Sign up to play!</h2>
+        <hr>
         <h2>Sign up</h2>
         <form id='sign-up'>
           <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
@@ -39,34 +42,56 @@
       </section>
 
       <section id="user-signed-in">
-        <nav id="nav">
-          <button class ="btn btn-outline-primary" id="create-game">New Game</button>
+        <nav id="nav-bar">
+          <button class="btn btn-outline-primary" id="create-game">New Game</button>
           <button class="btn btn-outline-primary" id="show-game">Show Games</button>
           <button class="btn btn-outline-primary" id="hide-game">Hide Games</button>
           <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
-          <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
+          <button id="sign-out" class="btn btn-outline-primary nav">Sign Out</button>
           <button id="storage">Console Store info</button>
         </nav>
         <section class="messages">
           <div id="error-message"></div>
-          <div id="success-message"></div>
+          <div id="success-message"  data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
       </section>
+        <section id="game-animation">
+            <div class="win">
+            	<span></span>
+            </div>
+            <div class="Tic-tac-toe">
+            	<div>
+            		<span id="x1">0</span>
+            		<span id="x2">-</span>
+            		<span id="x3">X</span>
+            	</div>
+            	<div>
+            		<span id="x4">-</span>
+            		<span id="x5">0</span>
+            		<span id="x6">X</span>
+            	</div>
+            	<div>
+            		<span id="x7">X</span>
+            		<span id="x8">0</span>
+            		<span id="x9">X</span>
+            	</div>
+            </div>
+          </section>
         <section class="games">
           <div class="each-game"></div>
         </section>
         <section id="user-options">
           <form id='change-password'>
             <h2>Change your password</h2>
-            <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
             <br>
-            <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
-            <br>
+              <input name="passwords[old]" type="password">
+              <br>
+              <input name="passwords[new]" type="password">
             <button class="btn btn-info">Change Password</button>
           </form>
         </section>
       </section>
-      <div id="test">
-        <section id="game-board">
+
+      <section id="game-board">
           <div class="row">
             <div class="col-2 box alt-color" id="1" data-cell-index='0'></div>
             <div class="col-2 box alt-color" id="2" data-cell-index='1'></div>
@@ -83,7 +108,6 @@
             <div class="col-2 box alt-color" id="9" data-cell-index='8'></div>
           </div>
         </section>
-      </div>
     </div>
 
     </body>

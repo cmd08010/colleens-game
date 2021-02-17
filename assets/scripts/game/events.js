@@ -26,14 +26,13 @@ const onCheckForWin = (game, box) => {
   ) {
     ui.showWinSuccess(game.cells, box)
     game.over = true
-    return game
   } else {
-    if (game.over === true) {
-      ui.showTieSuccess(game)
-    } else {
-      return game
+   if (!game.cells.includes('')) {
+     ui.showTieSuccess(game)
+      game.over = true
     }
   }
+  return game
 }
 
 const onUpdateGame = (event) => {
@@ -55,23 +54,27 @@ const onUpdateGame = (event) => {
       over: false
     }
   }
-console.log($(event.target).text(), "on deployed site: this should be the inner text of my box, it should show nothing ")
-  if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
-    // if not filled - mark the box and patch to api
-    api.updateGame(gameData)
-      .then(response => {
-        if (response.game.over) {
-          // if the response shows the game is now over - then check for a win - show the win message
-          onCheckForWin(response.game, event.target)
-        } else {
-          // if game is not over
-          onCheckForWin(response.game, event.target)
-          ui.updateGameSuccess(response, event.target)
-        }
-      })
-      .catch(ui.updateGameFailure)
+  if (store.game.over) {
+    onCheckForWin(store.game)
   } else {
-    ui.updateGameFailure()
+    if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
+    // if not filled - mark the box and patch to api
+      api.updateGame(gameData)
+        .then(response => {
+          store.game = response.game
+          if (response.game.over) {
+            // if the response shows the game is now over - then check for a win - show the win message
+            onCheckForWin(response.game, event.target)
+          } else {
+            // if game is not over
+            onCheckForWin(response.game, event.target)
+            ui.updateGameSuccess(response, event.target)
+          }
+        })
+        .catch(ui.updateGameFailure)
+    } else {
+      ui.updateGameFailure()
+    }
   }
 }
 

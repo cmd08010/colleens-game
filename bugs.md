@@ -17,3 +17,7 @@
 
 ### user issues
 -
+
+-when signing up - need to display message on first updateGame
+
+-remove gameboard from show all games

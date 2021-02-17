@@ -10,6 +10,7 @@ const signUpFailure = function (response) {
 }
 
 const signInSuccess = function (response) {
+  console.log(response, " this is my response from the api after signing in")
   store.user = response.user
   $('#error-message').text('')
   $('#change-password').show()
@@ -24,6 +25,8 @@ const signInFailure = function (response) {
 const changePasswordSuccess = () => {
   $('#success-message').text('Password was successfully changed!').addClass('success')
   $('#change-password').trigger('reset')
+  $('#change-password').hide()
+  $('.#game-board').show()
 }
 
 const changePasswordFailure = () => {
@@ -32,7 +35,7 @@ const changePasswordFailure = () => {
 
 const showChangePasswordForm = () => {
   $('#change-password').show()
-  $()
+  $('#game-board').hide()
 }
 
 const signOutSuccess = (target) => {
@@ -40,6 +43,7 @@ const signOutSuccess = (target) => {
   $('#no-user').show()
   $('#user-signed-in').hide()
   $('.games').hide()
+  $('#game-board').hide()
   $('#user-options').hide()
 }
 

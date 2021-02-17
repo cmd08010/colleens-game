@@ -1,8 +1,8 @@
 const store = require('../store')
-const gameEvents = require('../game/events')
 
 const createGameSuccess = (response) => {
   $('#game-board').show()
+  $('#game-animation').hide()
   $('.row').children().text('')
   $('#success-message').text('')
   $('#error-message').text('')
@@ -11,10 +11,11 @@ const createGameSuccess = (response) => {
 
 const createGameFailure = (response) => {
   $('#error-message').text('The board did not create')
+  $('#game-animation').hide()
 }
 
 const updateGameSuccess = (response, box) => {
-  $(box).html(`${store.turnValue}`)
+  $(box).html(`<h2>${store.turnValue}</h2>`)
   $('#error-message').text('')
 }
 
@@ -27,6 +28,8 @@ const updateGameFailure = () => {
 const showGamesSuccess = (response) => {
   $('#hide-game').show()
   $('.games').show()
+  $('#game-board').hide()
+  $('#game-animation').hide()
   $('.games').append(`<h2>You've played ${response.games.length} games. </h2>`)
   response.games.map(game => {
     $('.games').append(`
@@ -36,19 +39,23 @@ const showGamesSuccess = (response) => {
   })
 }
 
-const showGamesFailure = (response) => {}
+const showGamesFailure = (response) => {
+  $('#game-animation').hide()
+}
 
 const hideGames = () => {
   $('.games').hide()
+  $('#game-animation').hide()
 }
 
 const showWinSuccess = (response, box) => {
-  $('#success-message').text(`${store.turnValue} is the Winner! Hit New Game to Play again!`).addClass('success')
-  $('.box').off('click', gameEvents.onUpdateGame)
+  console.log($(box).html(), box, "box", response)
+  $('#success-message').text(`${$(box).text()} is the Winner! Click New Game to play again`).addClass('success')
+
 }
 
 const showTieSuccess = (response) => {
-  $('#success-message').text('Game tied! Play again!')
+  $('#success-message').html('<h2>Game tied! Play again!</h2>')
 }
 
 module.exports = {
