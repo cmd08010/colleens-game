@@ -16,8 +16,8 @@ const createGameFailure = (response) => {
 
 const updateGameSuccess = (response, box) => {
   $(box).html(`<h2>${store.turnValue}</h2>`)
-  $('#error-message').text('')
-  $('#success-message').text('')
+  // $('#error-message').text('')
+  // $('#success-message').text('')
 }
 
 const updateGameFailure = () => {
