@@ -13,6 +13,10 @@ $(() => {
   // user event handlers
   $('#user-signed-in').hide()
   $('#user-options').hide()
+  $('#signin-btn').on('click', userEvents.onShowSigninButton)
+  $('#signup-btn').on('click', userEvents.onShowSignupButton)
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#change-password-button').on('click', userEvents.onShowChangePassword)
@@ -22,6 +26,7 @@ $(() => {
   // game event handlers
   $('#game-board').hide()
   $('#create-game').on('click', gameEvents.onCreateGame)
+
   $('.box').on('click', gameEvents.onUpdateGame)
   //  $('#game-board').on('click', gameEvents.onTurnChange)
 

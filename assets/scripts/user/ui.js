@@ -1,6 +1,18 @@
 
 const store = require('../store')
 
+
+const showSignupForm = () => {
+  $('#sign-up').show()
+  $('#sign-in').hide()
+  $('#game-animation').hide()
+}
+const showSigninForm = () => {
+  $('#sign-in').show()
+  $('#sign-up').hide()
+  $('#game-animation').hide()
+}
+
 const signUpSuccess = function (response) {
   $('#success-message').text('Thank you for signing up')
   $('#sign-up').trigger('reset')
@@ -17,6 +29,8 @@ const signInSuccess = function (response) {
   $('#user-options').show()
   $('#no-user').hide()
   $('#change-password').hide()
+
+  $('#game-animation').show()
 }
 const signInFailure = function (response) {
   console.log(response, " this is my response from the api after signing in")
@@ -29,7 +43,6 @@ const changePasswordSuccess = () => {
 }
 
 const changePasswordFailure = () => {
-
   $('#success-message').text('')
   $('#error-message').text('Password WAS NOT changed. Try again')
 }
@@ -39,8 +52,12 @@ const showChangePasswordForm = () => {
   $('#game-board').hide()
   $('#game-animation').hide()
   $('.games').hide()
-  $('#error-message').text('')
-  $('#success-message').text('')
+  if ($('#success-message').text() !== '') {
+    $('#success-message').text('')
+  }
+  if ($('#error-message').text() !== '') {
+    $('#error-message').text('')
+  }
 }
 
 const signOutSuccess = (target) => {
@@ -65,5 +82,7 @@ module.exports = {
   changePasswordFailure,
   showChangePasswordForm,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  showSigninForm,
+  showSignupForm
 }

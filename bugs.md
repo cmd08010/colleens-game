@@ -21,3 +21,34 @@
 -when signing up - need to display message on first updateGame
 
 -remove gameboard from show all games
+
+
+## ui show and hide issues
+
+-first page - only show sign up, sign in, and maybe add the visual if i have time
+
+- on click of buttons - wipe the messages
+- add styling to buttons
+
+
+-home page - on sign in - show nav and show game animation
+
+-on new game - only show gameboard and nav
+  -hide game animation
+  -hide show Games
+  -hide change password form
+  -hide hide games button
+
+-on show games - show nav and Games and hide games button
+  -hide change password
+  -hide animation
+  -hide game gameboar
+
+- on change password - show nav, password form
+    - hide game gameboard
+    - hide gameanimation
+    - hide Games
+    -
+
+- on signout
+  - show signed out pge - no messages

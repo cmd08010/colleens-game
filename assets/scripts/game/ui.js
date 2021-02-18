@@ -1,11 +1,20 @@
 const store = require('../store')
 
 const createGameSuccess = (response) => {
+  console.log("in create game")
   $('#game-board').show()
-  $('#game-animation').hide()
   $('.row').children().text('')
-  $('#success-message').text('')
+  $('#game-animation').hide()
+  if ($('#success-message').text() !== '') {
+    $('#success-message').text('')
+  }
+  if ($('#error-message').text() !== '') {
+    $('#error-message').text('')
+  }
   $('#error-message').text('')
+  $('.games').hide()
+  $('#hide-games').hide()
+  $('#change-password').hide()
   store.game = response.game
 }
 
@@ -16,6 +25,9 @@ const createGameFailure = (response) => {
 
 const updateGameSuccess = (response, box) => {
   $(box).html(`<h2>${store.turnValue}</h2>`)
+  $('#game-animation').hide()
+  $('.games').hide()
+  $('#change-password').hide()
   // $('#error-message').text('')
   // $('#success-message').text('')
 }
@@ -32,7 +44,9 @@ const showGamesSuccess = (response) => {
   $('.games').show()
   $('#game-board').hide()
   $('#game-animation').hide()
+  $('#change-password').hide()
   $('.games').append(` <h2>You've played ${response.games.length} games</h2>`)
+  console.log(response.games, "this is my response")
   response.games.map(game => {
     $('.games').append(`
     <h2>Game number: ${response.games.indexOf(game) + 1} </h2>
@@ -52,8 +66,9 @@ const hideGames = () => {
   $('#game-animation').show()
   $('#error-message').text('')
   $('#success-message').text('')
+  $('#hide-games').hide()
+  $('#change-password').hide()
 }
-
 
 const showWinSuccess = (response, box) => {
   console.log($(box).html(), box, "box", response)

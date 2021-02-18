@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Barlow+Condensed:ital,wght@1,800&family=Fredoka+One&family=IBM+Plex+Serif:wght@500&display=swap');
 $alt-color: $white;
 $body-bg-color: $gray-200;
 $font-color: $black;
@@ -32,11 +32,14 @@ body {
 }
 
 .banner {
-  font-size: 1rem;
+  font-size: 100px;
+  font-family: 'Fredoka One', cursive;
   color: blue;
   display: flex;
   justify-content: center;
-  margin: 50px;
+  align-items: center;
+  margin: 20px;
+  height: 200px;
 }
 
 
@@ -45,11 +48,10 @@ body {
 }
 
 
-h2 {
+h4 {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
-  margin-top: 40px;
+
 }
 
 

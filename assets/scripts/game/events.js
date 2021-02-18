@@ -14,6 +14,7 @@ const onCreateGame = (event) => {
 }
 
 const onCheckForWin = (game, box) => {
+  console.log("in check for win event")
   if (
     ((game.cells[0] !== '') && (game.cells[0] === game.cells[1]) && (game.cells[1] === game.cells[2])) ||
     ((game.cells[0] !== '') && (game.cells[0] === game.cells[4]) && (game.cells[4] === game.cells[8])) ||
@@ -27,15 +28,18 @@ const onCheckForWin = (game, box) => {
     ui.showWinSuccess(game.cells, box)
     game.over = true
   } else {
-   if (!game.cells.includes('')) {
-     ui.showTieSuccess(game)
+    if (!game.cells.includes('')) {
+      ui.showTieSuccess(game)
       game.over = true
     }
   }
+  store.game = game
+  console.log(game, "store game", store.game)
   return game
 }
 
 const onUpdateGame = (event) => {
+  console.log("just entered on update game ")
   const box = event.target
   const boxIndex = $(box).data('cell-index')
   store.turnNumber++
@@ -45,7 +49,7 @@ const onUpdateGame = (event) => {
     store.turnValue = 'X'
   }
 
-  const gameData = {
+  let gameData = {
     game: {
       cell: {
         index: boxIndex,
@@ -56,17 +60,21 @@ const onUpdateGame = (event) => {
   }
   if (store.game.over) {
     onCheckForWin(store.game)
+    api.updateGame(store.game)
   } else {
     if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
     // if not filled - mark the box and patch to api
+    console.log("about to check api update game!")
       api.updateGame(gameData)
         .then(response => {
+          console.log("went to api - response came back", response)
           store.game = response.game
           if (response.game.over) {
             // if the response shows the game is now over - then check for a win - show the win message
             onCheckForWin(response.game, event.target)
           } else {
             // if game is not over
+            console.log("response didnt come back with game over - will mark the board now")
             onCheckForWin(response.game, event.target)
             ui.updateGameSuccess(response, event.target)
           }
