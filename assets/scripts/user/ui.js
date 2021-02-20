@@ -29,7 +29,7 @@ const signInSuccess = function (response) {
   $('#user-options').show()
   $('#no-user').hide()
   $('#change-password').hide()
-
+  $('#sign-in').trigger('reset')
   $('#game-animation').show()
 }
 const signInFailure = function (response) {

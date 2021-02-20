@@ -71,8 +71,8 @@ const hideGames = () => {
 }
 
 const showWinSuccess = (response, box) => {
-  console.log($(box).html(), box, "box", response)
-  $('#success-message').text(`${store.turnValue} is the Winner! Click New Game to play again`).addClass('success')
+  console.log(store.winner, "winnner")
+  $('#success-message').text(`${store.winner} is the Winner! Click New Game to play again`).addClass('success')
 }
 
 const showTieSuccess = (response) => {

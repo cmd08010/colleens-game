@@ -1,4 +1,9 @@
 
+## new features to add
+
+-forgot password button and email password
+
+
 
 ### UI bugs
 

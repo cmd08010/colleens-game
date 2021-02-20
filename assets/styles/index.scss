@@ -102,7 +102,7 @@ input {
 // for tic tac toe animation
 .Tic-tac-toe, .win {
 	display: inline-block;
-	position: absolute;
+  position: fixed;
 	margin-top: 40px; width: 302px;
 	top: 50%; left: 50%;
 	-webkit-transform: translate(-50%, -50%);

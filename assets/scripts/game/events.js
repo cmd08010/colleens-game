@@ -5,9 +5,11 @@ const store = require('../store')
 store.turnNumber = 1
 store.turnValue = ''
 store.notClicked = true
+store.winner = ''
 
 const onCreateGame = (event) => {
   store.notClicked = true
+  store.turnNumber = 1
   api.createGame({})
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -26,6 +28,8 @@ const onCheckForWin = (game, box) => {
     ((game.cells[2] !== '') && (game.cells[2] === game.cells[4]) && (game.cells[4] === game.cells[6]))
   ) {
     ui.showWinSuccess(game.cells, box)
+    console.log(game, box)
+    store.winner = $(box).html()
     game.over = true
   } else {
     if (!game.cells.includes('')) {
@@ -34,12 +38,10 @@ const onCheckForWin = (game, box) => {
     }
   }
   store.game = game
-  console.log(game, "store game", store.game)
   return game
 }
 
 const onUpdateGame = (event) => {
-  console.log("just entered on update game ")
   const box = event.target
   const boxIndex = $(box).data('cell-index')
   store.turnNumber++
@@ -49,7 +51,7 @@ const onUpdateGame = (event) => {
     store.turnValue = 'X'
   }
 
-  let gameData = {
+  const gameData = {
     game: {
       cell: {
         index: boxIndex,
@@ -59,22 +61,19 @@ const onUpdateGame = (event) => {
     }
   }
   if (store.game.over) {
-    onCheckForWin(store.game)
+    onCheckForWin(store.game, event.target)
     api.updateGame(store.game)
   } else {
     if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
     // if not filled - mark the box and patch to api
-    console.log("about to check api update game!")
       api.updateGame(gameData)
         .then(response => {
-          console.log("went to api - response came back", response)
           store.game = response.game
           if (response.game.over) {
             // if the response shows the game is now over - then check for a win - show the win message
             onCheckForWin(response.game, event.target)
           } else {
             // if game is not over
-            console.log("response didnt come back with game over - will mark the board now")
             onCheckForWin(response.game, event.target)
             ui.updateGameSuccess(response, event.target)
           }
