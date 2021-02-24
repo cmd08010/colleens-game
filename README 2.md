@@ -26,6 +26,6 @@ If you need to you can change your password!
 
 ### Wire Frames
 
-!(https://imgur.com/a/DPUla8N)
-!(https://imgur.com/a/hVCmQmO)
-!(https://imgur.com/a/tP57WWW)
+![image](https://imgur.com/a/DPUla8N)
+![image](https://imgur.com/a/hVCmQmO)
+![image](https://imgur.com/a/tP57WWW)
