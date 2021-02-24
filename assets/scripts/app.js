@@ -31,7 +31,9 @@ $(() => {
   //  $('#game-board').on('click', gameEvents.onTurnChange)
 
   $('#hide-game').hide()
-  $('#show-game').on('click', gameEvents.onShowGames)
+  if ($('#show-game').html() === '') {
+    $('#show-game').on('click', gameEvents.onShowGames)
+  }
   $('#hide-game').on('click', gameEvents.onHideGames)
 
   // remove once completed - this shows my stored stuff

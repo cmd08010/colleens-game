@@ -15,6 +15,7 @@ const showSigninForm = () => {
 
 const signUpSuccess = function (response) {
   $('#success-message').text('Thank you for signing up')
+  $('#error-message').text('')
   $('#sign-up').trigger('reset')
 }
 const signUpFailure = function (response) {
@@ -69,6 +70,7 @@ const signOutSuccess = (target) => {
   $('#user-options').hide()
   $('#error-message').text('')
   $('#success-message').text('')
+  $('#sign-in').trigger('reset')
 }
 
 const signOutFailure = () => {}

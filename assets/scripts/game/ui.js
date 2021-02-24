@@ -45,7 +45,7 @@ const showGamesSuccess = (response) => {
   $('#game-board').hide()
   $('#game-animation').hide()
   $('#change-password').hide()
-  $('.games').append(` <h2>You've played ${response.games.length} games</h2>`)
+  $('.games').html(` <h2>You've played ${response.games.length} games</h2>`)
   console.log(response.games, "this is my response")
   response.games.map(game => {
     $('.games').append(`
@@ -79,6 +79,7 @@ const showTieSuccess = (response) => {
   $('#success-message').html('<h2>Game tied! Play again!</h2>')
 }
 
+
 module.exports = {
   createGameSuccess,
   createGameFailure,
@@ -88,5 +89,5 @@ module.exports = {
   showGamesFailure,
   showWinSuccess,
   showTieSuccess,
-  hideGames
+  hideGames,
 }

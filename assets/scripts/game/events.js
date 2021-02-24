@@ -85,6 +85,7 @@ const onUpdateGame = (event) => {
   }
 }
 
+
 const onShowGames = (event) => {
   api.getGames()
     .then(ui.showGamesSuccess)
@@ -95,10 +96,15 @@ const onHideGames = (event) => {
   ui.hideGames()
 }
 
+
+
+// demontes code
+
+
 module.exports = {
   onUpdateGame,
   onShowGames,
   onCreateGame,
   onCheckForWin,
-  onHideGames
+  onHideGames,
 }
