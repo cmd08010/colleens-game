@@ -2,25 +2,22 @@ const store = require('../store')
 
 const createGameSuccess = (response) => {
   console.log("in create game")
+  $('#success-message').text('')
+  $('#error-message').text('')
   $('#game-board').show()
   $('.row').children().text('')
   $('#game-animation').hide()
-  if ($('#success-message').text() !== '') {
-    $('#success-message').text('')
-  }
-  if ($('#error-message').text() !== '') {
-    $('#error-message').text('')
-  }
-  $('#error-message').text('')
   $('.games').hide()
   $('#hide-games').hide()
   $('#change-password').hide()
   store.game = response.game
+  store.gameOver = false
 }
 
 const createGameFailure = (response) => {
   $('#error-message').text('The board did not create')
   $('#game-animation').hide()
+  $('#success-message').text('')
 }
 
 const updateGameSuccess = (response, box) => {
@@ -42,6 +39,8 @@ const updateGameFailure = () => {
 const showGamesSuccess = (response) => {
   $('#hide-game').show()
   $('.games').show()
+  $('#error-message').text('')
+  $('#success-message').text('')
   $('#game-board').hide()
   $('#game-animation').hide()
   $('#change-password').hide()
@@ -71,11 +70,13 @@ const hideGames = () => {
 }
 
 const showWinSuccess = (response, box) => {
+  $('#error-message').text('')
   console.log(store.winner, "winnner")
-  $('#success-message').text(`${store.winner} is the Winner! Click New Game to play again`).addClass('success')
+  $('#success-message').text(`${store.turnValue} is the Winner! Click New Game to play again`).addClass('success')
 }
 
 const showTieSuccess = (response) => {
+  $('#error-message').text('')
   $('#success-message').html('<h2>Game tied! Play again!</h2>')
 }
 

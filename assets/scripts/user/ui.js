@@ -3,11 +3,17 @@ const store = require('../store')
 
 
 const showSignupForm = () => {
+  $('#error-message').text('')
+  $('#success-message').text('')
+  $('#sign-up').trigger('reset')
   $('#sign-up').show()
   $('#sign-in').hide()
   $('#game-animation').hide()
 }
 const showSigninForm = () => {
+  $('#error-message').text('')
+  $('#success-message').text('')
+  $('#sign-in').trigger('reset')
   $('#sign-in').show()
   $('#sign-up').hide()
   $('#game-animation').hide()
@@ -25,6 +31,7 @@ const signUpFailure = function (response) {
 const signInSuccess = function (response) {
   store.user = response.user
   $('#error-message').text('')
+  $('#success-message').text('')
   $('#change-password').show()
   $('#user-signed-in').show()
   $('#user-options').show()
@@ -34,7 +41,6 @@ const signInSuccess = function (response) {
   $('#game-animation').show()
 }
 const signInFailure = function (response) {
-  console.log(response, " this is my response from the api after signing in")
   $('#error-message').text('Sign in failed, try again')
 }
 const changePasswordSuccess = () => {

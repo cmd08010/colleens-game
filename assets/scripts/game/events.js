@@ -6,6 +6,13 @@ store.turnNumber = 1
 store.turnValue = ''
 store.notClicked = true
 store.winner = ''
+store.gameData = {
+  game: {
+    cell: {},
+    over: false
+  }
+}
+store.gameOver = false
 
 const onCreateGame = (event) => {
   store.notClicked = true
@@ -16,7 +23,6 @@ const onCreateGame = (event) => {
 }
 
 const onCheckForWin = (game, box) => {
-  console.log("in check for win event")
   if (
     ((game.cells[0] !== '') && (game.cells[0] === game.cells[1]) && (game.cells[1] === game.cells[2])) ||
     ((game.cells[0] !== '') && (game.cells[0] === game.cells[4]) && (game.cells[4] === game.cells[8])) ||
@@ -28,52 +34,62 @@ const onCheckForWin = (game, box) => {
     ((game.cells[2] !== '') && (game.cells[2] === game.cells[4]) && (game.cells[4] === game.cells[6]))
   ) {
     ui.showWinSuccess(game.cells, box)
-    console.log(game, box)
-    store.winner = $(box).html()
-    game.over = true
+    store.gameOver = true
+    api.updateGame({
+      game: {
+        cell: {
+          index: $(box).data('cell-index'),
+          value: store.turnValue
+        },
+        over: true
+      }
+    })
+      .then(response => console.log(response))
   } else {
     if (!game.cells.includes('')) {
+      api.updateGame({
+        game: {
+          cell: {
+            index: $(box).data('cell-index'),
+            value: store.turnValue
+          },
+          over: true
+        }
+      })
+      store.gameOver = true
       ui.showTieSuccess(game)
-      game.over = true
     }
   }
-  store.game = game
   return game
 }
 
 const onUpdateGame = (event) => {
-  const box = event.target
-  const boxIndex = $(box).data('cell-index')
-  store.turnNumber++
-  if (store.turnNumber % 2) {
-    store.turnValue = 'O'
-  } else {
-    store.turnValue = 'X'
-  }
-
-  const gameData = {
-    game: {
-      cell: {
-        index: boxIndex,
-        value: store.turnValue
-      },
-      over: false
-    }
-  }
-  if (store.game.over) {
+  if (store.gameOver) {
     onCheckForWin(store.game, event.target)
-    api.updateGame(store.game)
   } else {
+    const box = event.target
+    const boxIndex = $(box).data('cell-index')
+    store.turnNumber++
+    if (store.turnNumber % 2) {
+      store.turnValue = 'O'
+    } else {
+      store.turnValue = 'X'
+    }
+
+    store.gameData.game.cell.index = boxIndex
+    store.gameData.game.cell.value = store.turnValue
+    console.log($(event.target).text(), "my text")
     if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
-    // if not filled - mark the box and patch to api
-      api.updateGame(gameData)
+      // if not filled - mark the box and patch to api
+
+      api.updateGame(store.gameData)
         .then(response => {
-          store.game = response.game
           if (response.game.over) {
             // if the response shows the game is now over - then check for a win - show the win message
             onCheckForWin(response.game, event.target)
+            console.log("testing for game over and to see if it works right")
           } else {
-            // if game is not over
+            console.log($(event.target).text(), "my text")
             onCheckForWin(response.game, event.target)
             ui.updateGameSuccess(response, event.target)
           }
@@ -85,7 +101,6 @@ const onUpdateGame = (event) => {
   }
 }
 
-
 const onShowGames = (event) => {
   api.getGames()
     .then(ui.showGamesSuccess)
@@ -96,15 +111,10 @@ const onHideGames = (event) => {
   ui.hideGames()
 }
 
-
-
-// demontes code
-
-
 module.exports = {
   onUpdateGame,
   onShowGames,
   onCreateGame,
   onCheckForWin,
-  onHideGames,
+  onHideGames
 }
