@@ -12,7 +12,7 @@ Colleen's Game is a fun game of Tic Tac Toe that users can play online. Users ca
 
 ## Planning Stories
 
-The project was a great challenge to determine how to complete the game logic and make a fun user experience. I followed the suggested schedule and began with authentication and then moved on to the game logic.
+The project was a great challenge to determine how to complete the game logic and make a fun user experience. I followed the suggested schedule and began with authentication and then moved on to the game logic. From there, the styling was completed.
 
 ### Technologies used
 
