@@ -6,30 +6,17 @@ Check it out!
 
 https://cmd08010.github.io/colleens-game/
 
-### Login or create an account
-
-First login or create an account!
-
-### Play a new game
-
-Select play a new game to get started!
-
-
-### View your previous games
-
-Take a look at your previous games!
-
-### Change your user password!
-
-If you need to you can change your password!
-
 ## About
 
-## Planning
+Colleen's Game is a fun game of Tic Tac Toe that users can play online. Users can switch between X and O to have a fun time playing.
+
+## Planning Stories
+
+The project was a great challenge to determine how to complete the game logic and make a fun user experience. I followed the suggested schedule and began with authentication and then moved on to the game logic.
 
 ### Technologies used
 
-Javascript, jQuery and HTML were used to create the game logic and user facing experience. CSS/S website, and ajax to communicate via an api to make requests to a data base containing user and game data. Finally I used CSS for styling.
+Javascript, jQuery and HTML were used to create the game logic and user facing experience. I utilized ajax requests with a preset API to same user and game data. Finally I used CSS for styling.
 
 * jQuery
 * HTML/CSS
@@ -37,6 +24,19 @@ Javascript, jQuery and HTML were used to create the game logic and user facing e
 * Javascript
 
 ## User Stories
+
+   * As a user, I want to be able to sign up
+   * As a user, I want to be able to sign in
+   * As a user, I want to be able to change password
+   * As a user, I want to be able to sign out
+   * As a user, I want to be able to start a tic tac toe game
+   * As a user, I want to be able to start as X and then rotate between X and O
+   * As a user, I want to be only select available spaces on the board
+   * As a user, I want to be notified when win, loss or tie occurs
+   * As a user, I want to not be able to add to that board once the game is finished
+   * As a user, I want to be able to play again
+   * As a user, I want to be to view number of games played
+
 
 ## Wireframes
 
