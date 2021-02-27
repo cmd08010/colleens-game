@@ -44,7 +44,6 @@ const onCheckForWin = (game, box) => {
         over: true
       }
     })
-      .then(response => console.log(response))
   } else {
     if (!game.cells.includes('')) {
       api.updateGame({

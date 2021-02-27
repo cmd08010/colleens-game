@@ -35,7 +35,4 @@ $(() => {
   $('#show-game').on('click', gameEvents.onShowGames)
 
   $('#hide-game').on('click', gameEvents.onHideGames)
-
-  // remove once completed - this shows my stored stuff
-//  $('#storage').on('click', () => console.log(store))
 })
