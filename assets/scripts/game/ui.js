@@ -1,7 +1,6 @@
 const store = require('../store')
 
 const createGameSuccess = (response) => {
-  console.log("in create game")
   $('#success-message').text('')
   $('#error-message').text('')
   $('#game-board').show()
@@ -42,7 +41,6 @@ const showGamesSuccess = (response) => {
   $('#error-message').text('')
   $('#success-message').text('')
   $('#game-board').hide()
-  $('#game-animation').hide()
   $('#change-password').hide()
 
   $('.games').html(` <h2>You've played ${response.games.length} games</h2>`)
@@ -71,7 +69,6 @@ const hideGames = () => {
 
 const showWinSuccess = (response, box) => {
   $('#error-message').text('')
-  console.log(store.winner, "winnner")
   $('#success-message').text(`${store.turnValue} is the Winner! Click New Game to play again`).addClass('success')
 }
 
@@ -79,7 +76,6 @@ const showTieSuccess = (response) => {
   $('#error-message').text('')
   $('#success-message').html('<h2>Game tied! Play again!</h2>')
 }
-
 
 module.exports = {
   createGameSuccess,

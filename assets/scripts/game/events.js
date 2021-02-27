@@ -78,7 +78,6 @@ const onUpdateGame = (event) => {
 
     store.gameData.game.cell.index = boxIndex
     store.gameData.game.cell.value = store.turnValue
-    console.log($(event.target).text(), "my text")
     if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
       // if not filled - mark the box and patch to api
 
@@ -87,9 +86,7 @@ const onUpdateGame = (event) => {
           if (response.game.over) {
             // if the response shows the game is now over - then check for a win - show the win message
             onCheckForWin(response.game, event.target)
-            console.log("testing for game over and to see if it works right")
           } else {
-            console.log($(event.target).text(), "my text")
             onCheckForWin(response.game, event.target)
             ui.updateGameSuccess(response, event.target)
           }
