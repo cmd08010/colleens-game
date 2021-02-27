@@ -31,7 +31,7 @@ $(() => {
   //  $('#game-board').on('click', gameEvents.onTurnChange)
 
   $('#hide-game').hide()
-    $('#show-game').on('click', gameEvents.onShowGames)
+  $('#show-game').on('click', gameEvents.onShowGames)
 
   $('#hide-game').on('click', gameEvents.onHideGames)
 

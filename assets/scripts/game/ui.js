@@ -44,8 +44,8 @@ const showGamesSuccess = (response) => {
   $('#game-board').hide()
   $('#game-animation').hide()
   $('#change-password').hide()
+
   $('.games').html(` <h2>You've played ${response.games.length} games</h2>`)
-  console.log(response.games, "this is my response")
   response.games.map(game => {
     $('.games').append(`
     <h2>Game number: ${response.games.indexOf(game) + 1} </h2>
@@ -90,5 +90,5 @@ module.exports = {
   showGamesFailure,
   showWinSuccess,
   showTieSuccess,
-  hideGames,
+  hideGames
 }
