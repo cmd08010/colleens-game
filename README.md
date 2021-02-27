@@ -37,7 +37,6 @@ Javascript, jQuery and HTML were used to create the game logic and user facing e
    * As a user, I want to be able to play again
    * As a user, I want to be to view number of games played
 
-
 ## Wireframes
 
 ![wireframe](public/images/wf_frontpage.png)
