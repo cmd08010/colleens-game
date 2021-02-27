@@ -47,7 +47,7 @@ Javascript, jQuery and HTML were used to create the game logic and user facing e
 
 ## Wireframes
 
-![wireframe] (public/images/wf_frontpage.png)
+![wireframe] [public/images/wf_frontpage.png]
 ![wireframe] (public/images/wf_gameboard.png)
 ![wireframe] (public/images/wf_games.png)
 
