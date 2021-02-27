@@ -23,13 +23,6 @@ Take a look at your previous games!
 
 If you need to you can change your password!
 
-
-### Wire Frames
-
-![image](https://imgur.com/fkbT9cc)
-![image](https://imgur.com/tfNZYze)
-![image](https://imgur.com/oFQS2Ia)
-
 ## About
 
 ## Planning
@@ -47,7 +40,7 @@ Javascript, jQuery and HTML were used to create the game logic and user facing e
 
 ## Wireframes
 
-![wireframe] (public/images/wf_frontpage.png)
+![wireframe](public/images/wf_frontpage.png)
 
 ## Unsolved Problems
 
