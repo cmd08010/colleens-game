@@ -7,6 +7,7 @@ const showSignupForm = () => {
   $('#sign-up').trigger('reset')
   $('#sign-up').show()
   $('#sign-in').hide()
+  $('#game-board').hide()
 }
 const showSigninForm = () => {
   $('#error-message').text('')
@@ -14,6 +15,7 @@ const showSigninForm = () => {
   $('#sign-in').trigger('reset')
   $('#sign-in').show()
   $('#sign-up').hide()
+  $('#game-board').hide()
 }
 
 const signUpSuccess = function (response) {
@@ -21,6 +23,7 @@ const signUpSuccess = function (response) {
   $('#error-message').text('')
   $('#sign-up').trigger('reset')
 }
+
 const signUpFailure = function (response) {
   $('#error-message').text('Sign up failed, try again')
 }
@@ -54,6 +57,7 @@ const showChangePasswordForm = () => {
   $('#change-password').show()
   $('#game-board').hide()
   $('.games').hide()
+  $('.show-old-game').hide()
   if ($('#success-message').text() !== '') {
     $('#success-message').text('')
   }
@@ -71,6 +75,7 @@ const signOutSuccess = (target) => {
   $('#user-options').hide()
   $('#error-message').text('')
   $('#success-message').text('')
+  $('.show-old-game').hide()
   $('#sign-in').trigger('reset')
 }
 

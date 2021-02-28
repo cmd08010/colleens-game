@@ -63,36 +63,46 @@ const onCheckForWin = (game, box) => {
 }
 
 const onUpdateGame = (event) => {
-  if (store.gameOver) {
-    onCheckForWin(store.game, event.target)
-  } else {
-    const box = event.target
-    const boxIndex = $(box).data('cell-index')
+  if (!store.user) {
     store.turnNumber++
     if (store.turnNumber % 2) {
       store.turnValue = 'O'
     } else {
       store.turnValue = 'X'
     }
-
-    store.gameData.game.cell.index = boxIndex
-    store.gameData.game.cell.value = store.turnValue
-    if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
-      // if not filled - mark the box and patch to api
-
-      api.updateGame(store.gameData)
-        .then(response => {
-          if (response.game.over) {
-            // if the response shows the game is now over - then check for a win - show the win message
-            onCheckForWin(response.game, event.target)
-          } else {
-            onCheckForWin(response.game, event.target)
-            ui.updateGameSuccess(response, event.target)
-          }
-        })
-        .catch(ui.updateGameFailure)
+    ui.guestUpdateGameSuccess(event.target)
+  } else {
+    if (store.gameOver) {
+      onCheckForWin(store.game, event.target)
     } else {
-      ui.updateGameFailure()
+      const box = event.target
+      const boxIndex = $(box).data('cell-index')
+      store.turnNumber++
+      if (store.turnNumber % 2) {
+        store.turnValue = 'O'
+      } else {
+        store.turnValue = 'X'
+      }
+
+      store.gameData.game.cell.index = boxIndex
+      store.gameData.game.cell.value = store.turnValue
+      if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
+        // if not filled - mark the box and patch to api
+
+        api.updateGame(store.gameData)
+          .then(response => {
+            if (response.game.over) {
+              // if the response shows the game is now over - then check for a win - show the win message
+              onCheckForWin(response.game, event.target)
+            } else {
+              onCheckForWin(response.game, event.target)
+              ui.updateGameSuccess(event.target)
+            }
+          })
+          .catch(ui.updateGameFailure)
+      } else {
+        ui.updateGameFailure()
+      }
     }
   }
 }
@@ -107,10 +117,19 @@ const onHideGames = (event) => {
   ui.hideGames()
 }
 
+const onShowOldGame = (event) => {
+  store.notClicked = true
+  store.turnNumber = 1
+  api.getGame($(event.target).data('game-id'))
+    .then(ui.showOldGame)
+    .catch(ui.showGamesFailure)
+}
+
 module.exports = {
   onUpdateGame,
   onShowGames,
   onCreateGame,
   onCheckForWin,
-  onHideGames
+  onHideGames,
+  onShowOldGame
 }
