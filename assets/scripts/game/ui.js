@@ -23,7 +23,6 @@ const createGameFailure = (response) => {
 }
 
 const updateGameSuccess = (box) => {
-
   $(box).html(`<h2>${store.turnValue}</h2>`)
   $('#game-animation').hide()
   $('.games').hide()
@@ -38,10 +37,8 @@ const guestUpdateGameSuccess = (box) => {
   $('#game-animation').hide()
   $('.games').hide()
   $('#change-password').hide()
-  $('#success-message').text('Sign in to play a real game!').addClass('success')
-
+  $('#success-message').text('Sign in to play a real game!').addClass('game-message')
 }
-
 
 const updateGameFailure = () => {
   $('#error-message').text('That square is taken! Try again.')

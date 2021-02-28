@@ -39,7 +39,7 @@ $(() => {
   $('#hide-game').on('click', gameEvents.onHideGames)
   $('.show-old-game').on('click', '.box', () => {
     if (store.game.over) {
-      $('#success-message').html('Game already finished! Click New Game to play a new one or select a game thats not finished').addClass('success')
+      $('#success-message').html('Game already finished! Click New Game to play a new one or select a game thats not finished').addClass('game-message')
     } else {
       gameEvents.onUpdateGame(event)
     }
