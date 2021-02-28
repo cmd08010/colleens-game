@@ -58,7 +58,8 @@ const showGamesSuccess = (response) => {
   $('#game-board').hide()
   $('#change-password').hide()
   $('.show-old-game').hide()
-  $('.games').html(` <h2>You've played ${response.games.length} games</h2>`)
+  $('.games').html(`<h1>Click on an unfinished game to keep playing!</h1>
+     <h2>You've played ${response.games.length} games</h2>`)
   response.games.map(game => {
     const date = moment(game.createdAt).format("MM DD YYYY")
     $('.games').append(`
