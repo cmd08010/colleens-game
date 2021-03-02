@@ -83,12 +83,16 @@ const hideGames = () => {
 
 const showWinSuccess = (response, box) => {
   $('#error-message').text('')
-  $('#success-message').text(`${store.turnValue} is the Winner! Click New Game to play again`).addClass('success')
+  if (store.turnValue === '<img id="wesley" src="public/images/wesley.jpeg">') {
+    $('#success-message').text(`Inconcievable! You've beaten me - Buttercup can go free`).addClass('success')
+  } else {
+    $('#success-message').text(`Never go against a Sicilian when death is on the line!`).addClass('success')
+  }
 }
 
 const showTieSuccess = (response) => {
   $('#error-message').text('')
-  $('#success-message').html('<h2>Game tied! Play again!</h2>')
+  $('#success-message').html('<h2>A tie! Inconcievable! Play me again and I will surely best you!</h2>')
 }
 
 const showOldGame = (response) => {

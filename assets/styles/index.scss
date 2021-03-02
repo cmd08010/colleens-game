@@ -98,9 +98,29 @@ input {
   flex-direction: column;
 }
 
+.signin-btn {
+  font-size-adjust: auto;
+}
+
+.signup-btn {
+  font-size-adjust: auto;
+}
+
+
+
 .title {
 	font-family: 'Indie Flower', cursive;
 	font-size: 90px;
 	text-align: center;
 	color: rgba(0,0,0,.8);
+}
+
+#vezzini{
+  height: 150px;
+  width: 100px;
+}
+
+#wesley{
+  width: 100px;
+  height: 150px;
 }

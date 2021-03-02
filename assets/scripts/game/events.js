@@ -2,6 +2,9 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
+const x = '<img id="vezzini" src="public/images/Vezzini.jpg">'
+const o = '<img id="wesley" src="public/images/wesley.jpeg">'
+
 store.turnNumber = 1
 store.turnValue = ''
 store.notClicked = true
@@ -66,9 +69,9 @@ const onUpdateGame = (event) => {
   if (!store.user) {
     store.turnNumber++
     if (store.turnNumber % 2) {
-      store.turnValue = 'O'
+      store.turnValue = o
     } else {
-      store.turnValue = 'X'
+      store.turnValue = x
     }
     ui.guestUpdateGameSuccess(event.target)
   } else {
@@ -79,14 +82,14 @@ const onUpdateGame = (event) => {
       const boxIndex = $(box).data('cell-index')
       store.turnNumber++
       if (store.turnNumber % 2) {
-        store.turnValue = 'O'
+        store.turnValue = o
       } else {
-        store.turnValue = 'X'
+        store.turnValue = x
       }
 
       store.gameData.game.cell.index = boxIndex
       store.gameData.game.cell.value = store.turnValue
-      if ($(event.target).text() !== 'X' && $(event.target).text() !== 'O') {
+      if ($(event.target).text() !== x && $(event.target).text() !== o) {
         // if not filled - mark the box and patch to api
 
         api.updateGame(store.gameData)
