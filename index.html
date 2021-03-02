@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>T3</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="banner">
+          A Game of Wits
+        </div>
+      <hr>
+      <section id="no-user">
+        <h4 id="sign-up-in-banner"><button class="btn btn-link" role="link" id="signin-btn">Sign in</button> or <button class="btn btn-link" role="link" id="signup-btn">Sign up</button> to play!</h4>
+        <hr>
+        <form id='sign-up'>
+          <h2>Sign up</h2>
+          <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+          <br>
+          <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+          <br>
+          <input type='password' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
+          <br>
+          <button class="btn btn-info">Sign up</button>
+        </form>
+
+          <form id='sign-in'>
+            <h2>Sign in </h2>
+            <input type='email' name='credentials[email]' placeholder='Enter Email Here' required>
+            <br>
+            <input type='password' name='credentials[password]' placeholder='Enter Password Here' required>
+            <br>
+            <button class="btn btn-info">Sign in</button>
+          </form>
+      </section>
+      <section id="user-signed-in">
+        <nav id="nav-bar">
+          <button class="btn btn-outline-primary" id="create-game">New Game</button>
+          <button class="btn btn-outline-primary" id="show-game">Show Games</button>
+          <button class="btn btn-outline-primary" id="hide-game">Hide Games</button>
+          <button id="change-password-button" class="btn btn-outline-primary">Change Password</button>
+          <button id="sign-out" class="btn btn-outline-primary">Sign Out</button>
+        </nav>
+
+        <section id="user-options">
+          <form id='change-password'>
+            <h2>Change your password</h2>
+            <br>
+              <input name="passwords[old]" placeholder='Enter Old Password Here' type="password">
+              <br>
+              <input name="passwords[new]" placeholder='Enter New Password Here' type="password">
+            <button class="btn btn-info">Change Password</button>
+          </form>
+        </section>
+      </section>
+      <section class="messages">
+        <div id="error-message"></div>
+        <div id="success-message"  data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
+      </section>
+
+      <section class="games">
+          <div class="each-game"></div>
+        </section>
+        <section class="show-old-game">
+        </section>
+
+      <section id="game-animation">
+
+          </section>
+
+      <section id="game-board">
+            <div class="row">
+              <div class="col-2 box alt-color" id="1" data-cell-index='0'></div>
+              <div class="col-2 box alt-color" id="2" data-cell-index='1'></div>
+              <div class="col-2 box alt-color" id="3" data-cell-index='2'></div>
+            </div>
+            <div class="row">
+              <div class="col-2 box alt-color" id="4" data-cell-index='3'></div>
+              <div class="col-2 box alt-color" id="5" data-cell-index='4'></div>
+              <div class="col-2 box alt-color" id="6" data-cell-index='5'></div>
+            </div>
+            <div class="row">
+              <div class="col-2 box alt-color" id="7" data-cell-index='6'></div>
+              <div class="col-2 box alt-color" id="8" data-cell-index='7'></div>
+              <div class="col-2 box alt-color" id="9" data-cell-index='8'></div>
+            </div>
+          </section>
+    </div>
+
+    </body>
+</html>
