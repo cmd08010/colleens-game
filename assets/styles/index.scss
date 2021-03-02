@@ -1,16 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Barlow+Condensed:ital,wght@1,800&family=Fredoka+One&family=IBM+Plex+Serif:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+
 $alt-color: $white;
-$body-bg-color: $gray-200;
+$body-bg-color: rgb(248, 248, 255);
 $font-color: $black;
+$gold: rgb(218, 165, 32);
 
 // mine
 body {
   align-items: center;
   background-color: $body-bg-color;
   justify-content: center;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 .box {
@@ -21,6 +25,7 @@ body {
   display: flex;
   height: 200px;
   justify-content: center;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 .alt-color {
@@ -29,20 +34,22 @@ body {
 
 .banner {
   font-size: 100px;
-  font-family: 'Fredoka One', cursive;
-  color: blue;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px;
   height: 200px;
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 90px;
+  text-align: center;
+  color: $gold;
 }
 
 .game-message {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Berkshire Swash', cursive;
 	font-size: 2rem;
 	text-align: center;
-	color: rgba(0,0,0,.8);
+	color: rgb(218, 165, 32);
 }
 
 
@@ -99,28 +106,38 @@ input {
 }
 
 .signin-btn {
-  font-size-adjust: auto;
+  font-size: 5rem;
+  padding: 0;
 }
 
 .signup-btn {
-  font-size-adjust: auto;
+  font-size: 5rem;
 }
 
+#sign-up-in-banner{
+  font-size: 2rem;
+}
 
-
-.title {
-	font-family: 'Indie Flower', cursive;
-	font-size: 90px;
-	text-align: center;
-	color: rgba(0,0,0,.8);
+.row > #vezzini {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
 }
 
 #vezzini{
-  height: 150px;
-  width: 100px;
+ height: 100px;
+ width: auto;
 }
 
 #wesley{
+  display: flex;
+ align-items: center;
+ justify-content: space-between;
+  box-sizing: border-box;
+  height: 125px;
   width: 100px;
-  height: 150px;
 }
